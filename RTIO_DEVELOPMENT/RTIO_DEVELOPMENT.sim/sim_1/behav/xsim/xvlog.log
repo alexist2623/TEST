@@ -1,0 +1,6 @@
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/M-labs/RTIO_DEVELOPMENT/fifo_dualclk.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module fifo_dualclk
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/M-labs/RTIO_DEVELOPMENT/gray_counter.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module gray_counter
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/M-labs/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sim_1/new/testbench.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module testbench
