@@ -1,25 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7s50csga324-1" LaunchTime="1595669686">
-  <File Type="PA-TCL" Name="fifo_dualclk.tcl"/>
-  <File Type="RDS-PROPCONSTRS" Name="fifo_dualclk_drc_synth.rpt"/>
-  <File Type="REPORTS-TCL" Name="fifo_dualclk_reports.tcl"/>
-  <File Type="RDS-RDS" Name="fifo_dualclk.vds"/>
-  <File Type="RDS-UTIL" Name="fifo_dualclk_utilization_synth.rpt"/>
-  <File Type="RDS-UTIL-PB" Name="fifo_dualclk_utilization_synth.pb"/>
-  <File Type="RDS-DCP" Name="fifo_dualclk.dcp"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="fifo_dualclk_timing_summary_synth.rpt"/>
-  <File Type="VDS-TIMING-PB" Name="fifo_dualclk_timing_summary_synth.pb"/>
+<GenRun Id="synth_1" LaunchPart="xc7s50csga324-1" LaunchTime="1595741889">
+  <File Type="PA-TCL" Name="rti_core.tcl"/>
+  <File Type="REPORTS-TCL" Name="rti_core_reports.tcl"/>
+  <File Type="RDS-RDS" Name="rti_core.vds"/>
+  <File Type="RDS-DCP" Name="rti_core.dcp"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
-    <File Path="$PPRDIR/gray_counter.sv">
+    <File Path="$PSRCDIR/sources_1/new/diff_counter_transfer.sv">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/fifo_dualclk.sv">
+    <File Path="$PSRCDIR/sources_1/new/fifo_dualclk.sv">
       <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/gray_counter.sv">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/rti_core.sv">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/gpi_core.sv">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -27,7 +44,7 @@
     </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
-      <Option Name="TopModule" Val="fifo_dualclk"/>
+      <Option Name="TopModule" Val="rti_core"/>
       <Option Name="TopAutoSet" Val="TRUE"/>
     </Config>
   </FileSet>
@@ -44,9 +61,7 @@
     </Config>
   </FileSet>
   <Strategy Version="1" Minor="2">
-    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2019">
-      <Desc>Vivado Synthesis Defaults</Desc>
-    </StratHandle>
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2019"/>
     <Step Id="synth_design"/>
   </Strategy>
 </GenRun>

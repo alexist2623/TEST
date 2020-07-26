@@ -23,7 +23,7 @@ eval( EAInclude(ISEJScriptLib) );
 
 
 ISEStep( "vivado",
-         "-log fifo_dualclk.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source fifo_dualclk.tcl" );
+         "-log rti_core.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source rti_core.tcl" );
 
 
 

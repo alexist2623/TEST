@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='C:/M-labs/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.runs/synth_1'
+HD_PWD='C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.runs/synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log
@@ -40,4 +40,4 @@ EAStep()
      fi
 }
 
-EAStep vivado -log fifo_dualclk.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source fifo_dualclk.tcl
+EAStep vivado -log rti_core.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source rti_core.tcl
