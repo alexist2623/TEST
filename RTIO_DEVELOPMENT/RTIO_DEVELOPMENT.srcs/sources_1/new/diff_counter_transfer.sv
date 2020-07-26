@@ -25,6 +25,8 @@ generate
     end
 endgenerate
 
+assign counter_diff = counter_diff_binary;
+
 assign counter_diff_gray = counter_diff_gray_buffer2;
 
 always @(posedge clk) begin
@@ -33,7 +35,6 @@ end
 
 always @(posedge clk_diff) begin
     if(reset_diff == 1'd0) begin
-        counter_diff <= counter_diff_binary;
         counter_diff_gray_buffer1 <= counter_original_gray;
         counter_diff_gray_buffer2 <= counter_diff_gray_buffer1;
     end

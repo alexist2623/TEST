@@ -23,9 +23,7 @@
 module rti_core
 #(
     parameter 
-                N_IN=4,
-                MAX_NUM_SIGNAL = $floor(32 / N_IN),
-                MAX_NUM_SIGNAL_BITS = $bits(MAX_NUM_SIGNAL)
+                N_IN=4
 )
 (
     input logic clk,
@@ -43,34 +41,36 @@ module rti_core
     output logic [N_IN-1:0] din
 );
 
-logic [N_IN-1:0] buffer; // Prevent metastable
-logic [N_IN-1:0] prev;
+logic [31:0] write_buffer;
 logic full, empty;
 logic [31:0] timer_upper, timer_lower, edges;
-logic wr_en;
-logic flush;
-logic [31:0] write_buffer;
-logic write_to_fifo;
-logic prev_wr_en;
-logic [MAX_NUM_SIGNAL_BITS-1:0] num_of_signal;
+logic wr_en_buffer1, wr_en_buffer2;
+logic flush_buffer1, flush_buffer2, flush;
+logic wrst_buffer1, wrst_buffer2;
+logic rrst;
 logic [$bits(counter)-1:0] counter_x8_domain;
+logic [N_IN-1:0] din_buffer1;
+logic [N_IN-1:0] din_buffer2;
 
-assign wr_en = write && cs && (addr==5'd4);
-assign flush = write && cs && (addr == 5'd5);
+assign wr_en = wr_en_buffer2;                       //write && cs && (addr==5'd4); was changed to prevent metastable
+assign flush = flush_buffer2;                       //write && cs && (addr == 5'd5); was changed to prevent metastable
+assign rrst = reset | flush;
+assign wrst = wrst_buffer2;
+assign write_buffer = {{(32-N_IN){0}}, din_buffer2};
 
 fifo_dualclk #(
-    .DATA_WIDTH($bits(time_upper)+$bits(time_lower)+$bits(edges)),
+    .DATA_WIDTH( $bits(timer_upper) + $bits(timer_lower) + $bits(edges) ),
 	.LOGDEPTH(7)
 )
 fifo_dulaclk_0
 (
     .clk(clk),
-    .wrst(reset | flush),                           // reset or flush duration should be larger than 1.25ns
-    .rrst(reset | flush),                           // reset or flush duration should be larger than 10ns
+    .wrst(wrst),                                    // reset or flush duration should be larger than 1.25ns
+    .rrst(rrst),                                    // reset or flush duration should be larger than 10ns
     .clkx8(clkx8),
 	.wr_en(wr_en), 
 	.rd_en(read),
-	.din({counter_x8_domain, write_buffer}),                 // {counter,{(32-2*N_IN){0}}, buffer} was changed to {counter,{(32-N_IN){0}}, buffer} 
+	.din({counter_x8_domain, write_buffer}),        // {counter,{(32-2*N_IN){0}}, buffer} was changed to {counter,{(32-N_IN){0}}, buffer} 
 	.empty(empty), 
 	.full(full),
 	.dout({timer_upper, timer_lower, edges})
@@ -89,46 +89,41 @@ diff_counter_transfer_0
     .counter_diff(counter_x8_domain)
 );
 
-always @(posedge clkx8) begin
-    buffer <= din;
-    prev <= buffer;
-end
-
-always @( posedge clkx8 ) begin
-    if( reset ) begin
-        write_buffer <= 0;
-        write_to_fifo <= 0;
-        prev_wr_en <= 0;
-        num_of_signal <= 0;
+//### synchronizing write, vs, addr signal to clkx8 (800MHz)
+always @ (posedge clkx8) begin
+    if( wrst == 1'd1) begin
+        wr_en_buffer1 <= 0;
+        wr_en_buffer2 <= 0;
+        flush_buffer1 <= 0;
+        flush_buffer2 <= 0;
+        wrst_buffer1 <= reset | flush;
+        wrst_buffer2 <= wrst_buffer1;
     end
     
     else begin
-        prev_wr_en <= wr_en;
-        if( wr_en == 1'd1) begin
-            if( num_of_signal == MAX_NUM_SIGNAL - 1) begin
-                num_of_signal <= 0;
-            end
-            else begin
-                num_of_signal <= num_of_signal + 1;
-                
-                
-            end
-        end
-        else begin
-            num_of_signal <= 0;
-            if( prev_wr_en == 1'd1 ) begin
-                write_to_fifo <= 1;
-            end
-            
-            else begin
-                write_to_fifo <= 0;
-            end
-        end
+        wr_en_buffer1 <= write && cs && (addr==5'd4);
+        flush_buffer1 <= write && cs && (addr == 5'd5);
+        wr_en_buffer2 <= wr_en_buffer1;
+        flush_buffer2 <= flush_buffer1;
+        wrst_buffer1 <= reset | flush;
+        wrst_buffer2 <= wrst_buffer1;
     end
-        
 end
 
-always @ (*)
+//### match timing with counter
+always @ ( posedge clkx8 ) begin
+    if( reset == 1'd1) begin
+        din_buffer1 <= 0;
+        din_buffer2 <= 0;
+    end
+    
+    else begin
+        din_buffer1 <= din;
+        din_buffer2 <= din_buffer1;
+    end
+end
+
+always @ (*) begin
     case(addr)
     5'd0:
         rd_data = timer_lower;
@@ -141,8 +136,6 @@ always @ (*)
     default:
         rd_data = 0;  
     endcase
-    
-
-
+end
 
 endmodule
