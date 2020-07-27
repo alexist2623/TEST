@@ -38,7 +38,7 @@ module rti_core
     output logic [31:0] rd_data,
     
     input logic [63:0] counter,
-    output logic [N_IN-1:0] din
+    input logic [N_IN-1:0] din                      // direction has been changed to "output"
 );
 
 logic [31:0] write_buffer;
@@ -51,12 +51,16 @@ logic rrst;
 logic [$bits(counter)-1:0] counter_x8_domain;
 logic [N_IN-1:0] din_buffer1;
 logic [N_IN-1:0] din_buffer2;
+logic wr_en_async;
+logic flush_async;
 
 assign wr_en = wr_en_buffer2;                       //write && cs && (addr==5'd4); was changed to prevent metastable
 assign flush = flush_buffer2;                       //write && cs && (addr == 5'd5); was changed to prevent metastable
-assign rrst = reset | flush;
+assign rrst = reset;
 assign wrst = wrst_buffer2;
 assign write_buffer = {{(32-N_IN){0}}, din_buffer2};
+assign wr_en_async = ( write && cs && (addr==5'd4) );
+assign flush_async = ( write && cs && (addr == 5'd5) );
 
 fifo_dualclk #(
     .DATA_WIDTH( $bits(timer_upper) + $bits(timer_lower) + $bits(edges) ),
@@ -65,8 +69,8 @@ fifo_dualclk #(
 fifo_dulaclk_0
 (
     .clk(clk),
-    .wrst(wrst),                                    // reset or flush duration should be larger than 1.25ns
-    .rrst(rrst),                                    // reset or flush duration should be larger than 10ns
+    .wrst(wrst | flush),                            // reset or flush duration should be larger than 1.25ns
+    .rrst(rrst | flush),                            // reset or flush duration should be larger than 10ns
     .clkx8(clkx8),
 	.wr_en(wr_en), 
 	.rd_en(read),
@@ -96,16 +100,16 @@ always @ (posedge clkx8) begin
         wr_en_buffer2 <= 0;
         flush_buffer1 <= 0;
         flush_buffer2 <= 0;
-        wrst_buffer1 <= reset | flush;
+        wrst_buffer1 <= reset;
         wrst_buffer2 <= wrst_buffer1;
     end
     
     else begin
-        wr_en_buffer1 <= write && cs && (addr==5'd4);
-        flush_buffer1 <= write && cs && (addr == 5'd5);
+        wr_en_buffer1 <= wr_en_async;
+        flush_buffer1 <= flush_async;
         wr_en_buffer2 <= wr_en_buffer1;
         flush_buffer2 <= flush_buffer1;
-        wrst_buffer1 <= reset | flush;
+        wrst_buffer1 <= reset;
         wrst_buffer2 <= wrst_buffer1;
     end
 end

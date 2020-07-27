@@ -83,71 +83,84 @@ initial begin
         clk = ~clk;
 
     end
-            reset = 0;
-    for( k = 0; k < 20; k = k + 1) begin
-        #0.03125 clkx8 = ~clkx8;
-        write = 0;  
-        #0.03125 clkx8 = ~clkx8;
-        #0.03125 clkx8 = ~clkx8;
-        #0.03125 clkx8 = ~clkx8;
-        #0.03125 clkx8 = ~clkx8;
-        #0.03125 clkx8 = ~clkx8;
-        #0.03125 clkx8 = ~clkx8;
-        #0.03125 clkx8 = ~clkx8;
-        #0.03125 clkx8 = ~clkx8;
-        #0.03125 clkx8 = ~clkx8;
-        #0.03125 clkx8 = ~clkx8;
-        #0.03125 clkx8 = ~clkx8;
-        #0.03125 clkx8 = ~clkx8;
-        #0.03125 clkx8 = ~clkx8;
-        #0.03125 clkx8 = ~clkx8;
-        #0.03125 clkx8 = ~clkx8;
+    reset = 0;
+    
+    for( k = 0; k < 2; k = k + 1) begin
+        for( l = 0; l < 8; l++) begin
+            #0.0625 clkx8 = ~clkx8;
+        end
         clk = ~clk;
-        counter = counter + 1;
         
+        for( l = 0; l < 8; l++) begin
+            #0.0625 clkx8 = ~clkx8;
+        end
+        clk = ~clk;
+
+    end
+    //
+    for( k = 0; k < 20; k = k + 1) begin
+        #0.03125 ;  
         #0.03125 clkx8 = ~clkx8;
+        #0.03125 ;
         din = k*8 + 1;
         addr = 4;
         cs = 1;
         write = 1;
         #0.03125 clkx8 = ~clkx8;
+        #0.03125 ;
         #0.03125 clkx8 = ~clkx8;
+        #0.03125 ;
         din = k*8 + 2;
         addr = 4;
         cs = 1;
         write = 1;
         #0.03125 clkx8 = ~clkx8;
+        #0.03125 ;
         #0.03125 clkx8 = ~clkx8;
+        #0.03125 ;
         din = k*8 + 3;
         addr = 4;
         cs = 1;
         write = 1;
         #0.03125 clkx8 = ~clkx8;
+        #0.03125 ;
         #0.03125 clkx8 = ~clkx8;
+        #0.03125 ;
         din = k*8 + 4;
         addr = 4;
         cs = 1;
         write = 1;
         #0.03125 clkx8 = ~clkx8;
+        clk = ~clk;
+        counter = counter + 1;
+        
+        #0.03125 ;
         #0.03125 clkx8 = ~clkx8;
+        #0.03125 ;
         din = k*8 + 5;
         addr = 4;
         cs = 1;
         write = 1;
         #0.03125 clkx8 = ~clkx8;
+        #0.03125 ;
         #0.03125 clkx8 = ~clkx8;
+        #0.03125 ;
         din = k*8 + 6;
         addr = 4;
         cs = 1;
         write = 1;
         #0.03125 clkx8 = ~clkx8;
+        #0.03125 ;
         #0.03125 clkx8 = ~clkx8;
+        #0.03125 ;
         din = k*8 + 7;
         addr = 4;
         cs = 1;
         write = 1;
         #0.03125 clkx8 = ~clkx8;
+        #0.03125 ;
         #0.03125 clkx8 = ~clkx8;
+        #0.03125 ;
         din = k*8 + 8;
         addr = 4;
         cs = 1;
@@ -173,61 +186,62 @@ initial begin
     addr = 2;
     
     for( k = 0; k < 129; k = k + 1) begin
+        #0.03125 ;
         #0.03125 clkx8 = ~clkx8;
+        #0.03125 ;
         #0.03125 clkx8 = ~clkx8;
+        #0.03125 ;
         #0.03125 clkx8 = ~clkx8;
+        #0.03125 ;
         #0.03125 clkx8 = ~clkx8;
+        #0.03125 ;
         #0.03125 clkx8 = ~clkx8;
+        #0.03125 ;
         #0.03125 clkx8 = ~clkx8;
+        #0.03125 ;
         #0.03125 clkx8 = ~clkx8;
-        #0.03125 clkx8 = ~clkx8;
-        #0.03125 clkx8 = ~clkx8;
-        #0.03125 clkx8 = ~clkx8;
-        #0.03125 clkx8 = ~clkx8;
-        #0.03125 clkx8 = ~clkx8;
-        #0.03125 clkx8 = ~clkx8;
-        #0.03125 clkx8 = ~clkx8;
-        #0.03125 clkx8 = ~clkx8;
+        #0.03125 ;
         #0.03125 clkx8 = ~clkx8;
         clk = ~clk;
         counter = counter + 1;
+        $display(counter);
         
-        #0.03125 clkx8 = ~clkx8;
+        #0.03125 ;
         din = k*8 + 1;
         cs = 1;
         read = 1;
         #0.03125 clkx8 = ~clkx8;
-        #0.03125 clkx8 = ~clkx8;
+        #0.03125 ;
         din = k*8 + 2;
         cs = 1;
         read = 1;
         #0.03125 clkx8 = ~clkx8;
-        #0.03125 clkx8 = ~clkx8;
+        #0.03125 ;
         din = k*8 + 3;
         cs = 1;
         read = 1;
         #0.03125 clkx8 = ~clkx8;
-        #0.03125 clkx8 = ~clkx8;
+        #0.03125 ;
         din = k*8 + 4;
         cs = 1;
         read = 1;
         #0.03125 clkx8 = ~clkx8;
-        #0.03125 clkx8 = ~clkx8;
+        #0.03125 ;
         din = k*8 + 5;
         cs = 1;
         read = 1;
         #0.03125 clkx8 = ~clkx8;
-        #0.03125 clkx8 = ~clkx8;
+        #0.03125 ;
         din = k*8 + 6;
         cs = 1;
         read = 1;
         #0.03125 clkx8 = ~clkx8;
-        #0.03125 clkx8 = ~clkx8;
+        #0.03125 ;
         din = k*8 + 7;
         cs = 1;
         read = 1;
         #0.03125 clkx8 = ~clkx8;
-        #0.03125 clkx8 = ~clkx8;
+        #0.03125 ;
         din = k*8 + 8;
         cs = 1;
         read = 1;
@@ -235,6 +249,176 @@ initial begin
         clk = ~clk;
     end
     read = 0;
+    //
+    for( k = 0; k < 2; k = k + 1) begin
+        for( l = 0; l < 8; l++) begin
+            #0.0625 clkx8 = ~clkx8;
+        end
+        clk = ~clk;
+        counter = counter + 1;
+        
+        for( l = 0; l < 8; l++) begin
+            #0.0625 clkx8 = ~clkx8;
+        end
+        clk = ~clk;
+    end    
+    #0.03125 ;
+    write = 0;  
+    #0.03125 clkx8 = ~clkx8;
+    #0.03125 ;
+    #0.03125 clkx8 = ~clkx8;
+    #0.03125 ;
+    #0.03125 clkx8 = ~clkx8;
+    #0.03125 ;
+    #0.03125 clkx8 = ~clkx8;
+    #0.03125 ;
+    #0.03125 clkx8 = ~clkx8;
+    #0.03125;
+    #0.03125 clkx8 = ~clkx8;
+    #0.03125 ;
+    #0.03125 clkx8 = ~clkx8;
+    #0.03125 ;
+    #0.03125 clkx8 = ~clkx8;
+    clk = ~clk;
+    counter = counter + 1;
+    
+    //write again
+    #0.03125 ;
+    #0.03125 clkx8 = ~clkx8;
+    #0.03125 ;
+    din =15;
+    addr = 4;
+    cs = 1;
+    write = 1;
+    #0.03125 clkx8 = ~clkx8;
+    #0.03125;
+    #0.03125 clkx8 = ~clkx8;
+    #0.03125 ;
+    din = 14;
+    addr = 4;
+    cs = 1;
+    write = 1;
+    #0.03125 clkx8 = ~clkx8;
+    #0.03125 ;
+    #0.03125 clkx8 = ~clkx8;
+    #0.03125 ;
+    din = 13;
+    addr = 4;
+    cs = 1;
+    write = 1;
+    din = 10;
+    addr = 4;
+    cs = 1;
+    write = 1;
+    #0.03125 clkx8 = ~clkx8;
+    #0.03125 ;
+    #0.03125 clkx8 = ~clkx8;
+    #0.03125 ;
+    din = 12;
+    addr = 4;
+    cs = 1;
+    write = 1;
+    #0.03125 clkx8 = ~clkx8;
+    clk = ~clk;
+    
+    write = 0;
+    
+    for( k = 0; k < 2; k = k + 1) begin
+        for( l = 0; l < 8; l++) begin
+            #0.0625 clkx8 = ~clkx8;
+        end
+        clk = ~clk;
+        counter = counter + 1;
+        
+        for( l = 0; l < 8; l++) begin
+            #0.0625 clkx8 = ~clkx8;
+        end
+        clk = ~clk;
+    end    
+    #0.03125; 
+    #0.03125 clkx8 = ~clkx8;
+    addr = 5;
+    write = 1;
+    #0.03125; 
+    #0.03125 clkx8 = ~clkx8;
+    for( k = 0; k < 2; k = k + 1) begin
+        for( l = 0; l < 6; l++) begin
+            #0.0625 clkx8 = ~clkx8;
+        end
+        clk = ~clk;
+        counter = counter + 1;
+        
+        for( l = 0; l < 8; l++) begin
+            #0.0625 clkx8 = ~clkx8;
+        end
+        clk = ~clk;
+    end    
+    addr = 2;
+    write = 0;
+    for( k = 0; k < 2; k = k + 1) begin
+        for( l = 0; l < 8; l++) begin
+            #0.0625 clkx8 = ~clkx8;
+        end
+        clk = ~clk;
+        counter = counter + 1;
+        
+        for( l = 0; l < 8; l++) begin
+            #0.0625 clkx8 = ~clkx8;
+        end
+        clk = ~clk;
+    end    
+    
+    #0.03125 ;
+    #0.03125 clkx8 = ~clkx8;
+    #0.03125 ;
+    din =15;
+    addr = 4;
+    cs = 1;
+    write = 1;
+    #0.03125 clkx8 = ~clkx8;
+    #0.03125;
+    #0.03125 clkx8 = ~clkx8;
+    #0.03125 ;
+    din = 14;
+    addr = 4;
+    cs = 1;
+    write = 1;
+    #0.03125 clkx8 = ~clkx8;
+    #0.03125 ;
+    #0.03125 clkx8 = ~clkx8;
+    #0.03125 ;
+    din = 13;
+    addr = 4;
+    cs = 1;
+    write = 1;
+    din = 10;
+    addr = 4;
+    cs = 1;
+    write = 1;
+    #0.03125 clkx8 = ~clkx8;
+    #0.03125 ;
+    #0.03125 clkx8 = ~clkx8;
+    #0.03125 ;
+    din = 12;
+    addr = 4;
+    cs = 1;
+    write = 1;
+    #0.03125 clkx8 = ~clkx8;
+    clk = ~clk;
+    
+    write = 0;
+    for( k = 0; k < 2; k = k + 1) begin
+        for( l = 0; l < 8; l++) begin
+            #0.0625 clkx8 = ~clkx8;
+        end
+        clk = ~clk;
+        counter = counter + 1;
+        
+        for( l = 0; l < 8; l++) begin
+            #0.0625 clkx8 = ~clkx8;
+        end
+        clk = ~clk;
+    end    
 end
 
 endmodule

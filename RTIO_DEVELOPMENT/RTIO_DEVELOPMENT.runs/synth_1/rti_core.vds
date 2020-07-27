@@ -2,8 +2,8 @@
 # Vivado v2019.2 (64-bit)
 # SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
 # IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
-# Start of session at: Sun Jul 26 14:38:12 2020
-# Process ID: 24680
+# Start of session at: Mon Jul 27 12:25:50 2020
+# Process ID: 1904
 # Current directory: C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.runs/synth_1
 # Command line: vivado.exe -log rti_core.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source rti_core.tcl
 # Log file: C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.runs/synth_1/rti_core.vds
@@ -15,22 +15,595 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7s50'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7s50'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 21036 
+INFO: Helper process launched with PID 1144 
+WARNING: [Synth 8-1849] concatenation with unsized literal; will interpret as 32 bits [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/rti_core.sv:59]
 ---------------------------------------------------------------------------------
-Starting Synthesize : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 573.816 ; gain = 243.922
+Starting Synthesize : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 576.910 ; gain = 245.922
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'rti_core' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/rti_core.sv:23]
 	Parameter N_IN bound to: 4 - type: integer 
-	Parameter MAX_NUM_SIGNAL bound to: 8.000000 - type: double 
-	Parameter MAX_NUM_SIGNAL_BITS bound to: 64 - type: integer 
-ERROR: [Synth 8-660] unable to resolve 'time_upper' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/rti_core.sv:62]
-ERROR: [Synth 8-6156] failed synthesizing module 'rti_core' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/rti_core.sv:23]
+INFO: [Synth 8-6157] synthesizing module 'fifo_dualclk' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/fifo_dualclk.sv:1]
+	Parameter DATA_WIDTH bound to: 96 - type: integer 
+	Parameter LOGDEPTH bound to: 7 - type: integer 
+	Parameter DEPTH bound to: 128 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'gray_counter' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/gray_counter.sv:1]
+	Parameter LENGTH bound to: 8 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'gray_counter' (1#1) [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/gray_counter.sv:1]
+INFO: [Synth 8-6155] done synthesizing module 'fifo_dualclk' (2#1) [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/fifo_dualclk.sv:1]
+INFO: [Synth 8-6157] synthesizing module 'diff_counter_transfer' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:1]
+	Parameter COUNTER_LENGTH bound to: 64 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'diff_counter_transfer' (3#1) [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:1]
+WARNING: [Synth 8-3848] Net din in module/entity rti_core does not have driver. [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/rti_core.sv:41]
+INFO: [Synth 8-6155] done synthesizing module 'rti_core' (4#1) [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/rti_core.sv:23]
+WARNING: [Synth 8-3331] design diff_counter_transfer has unconnected port reset
+WARNING: [Synth 8-3331] design rti_core has unconnected port wr_data[31]
+WARNING: [Synth 8-3331] design rti_core has unconnected port wr_data[30]
+WARNING: [Synth 8-3331] design rti_core has unconnected port wr_data[29]
+WARNING: [Synth 8-3331] design rti_core has unconnected port wr_data[28]
+WARNING: [Synth 8-3331] design rti_core has unconnected port wr_data[27]
+WARNING: [Synth 8-3331] design rti_core has unconnected port wr_data[26]
+WARNING: [Synth 8-3331] design rti_core has unconnected port wr_data[25]
+WARNING: [Synth 8-3331] design rti_core has unconnected port wr_data[24]
+WARNING: [Synth 8-3331] design rti_core has unconnected port wr_data[23]
+WARNING: [Synth 8-3331] design rti_core has unconnected port wr_data[22]
+WARNING: [Synth 8-3331] design rti_core has unconnected port wr_data[21]
+WARNING: [Synth 8-3331] design rti_core has unconnected port wr_data[20]
+WARNING: [Synth 8-3331] design rti_core has unconnected port wr_data[19]
+WARNING: [Synth 8-3331] design rti_core has unconnected port wr_data[18]
+WARNING: [Synth 8-3331] design rti_core has unconnected port wr_data[17]
+WARNING: [Synth 8-3331] design rti_core has unconnected port wr_data[16]
+WARNING: [Synth 8-3331] design rti_core has unconnected port wr_data[15]
+WARNING: [Synth 8-3331] design rti_core has unconnected port wr_data[14]
+WARNING: [Synth 8-3331] design rti_core has unconnected port wr_data[13]
+WARNING: [Synth 8-3331] design rti_core has unconnected port wr_data[12]
+WARNING: [Synth 8-3331] design rti_core has unconnected port wr_data[11]
+WARNING: [Synth 8-3331] design rti_core has unconnected port wr_data[10]
+WARNING: [Synth 8-3331] design rti_core has unconnected port wr_data[9]
+WARNING: [Synth 8-3331] design rti_core has unconnected port wr_data[8]
+WARNING: [Synth 8-3331] design rti_core has unconnected port wr_data[7]
+WARNING: [Synth 8-3331] design rti_core has unconnected port wr_data[6]
+WARNING: [Synth 8-3331] design rti_core has unconnected port wr_data[5]
+WARNING: [Synth 8-3331] design rti_core has unconnected port wr_data[4]
+WARNING: [Synth 8-3331] design rti_core has unconnected port wr_data[3]
+WARNING: [Synth 8-3331] design rti_core has unconnected port wr_data[2]
+WARNING: [Synth 8-3331] design rti_core has unconnected port wr_data[1]
+WARNING: [Synth 8-3331] design rti_core has unconnected port wr_data[0]
 ---------------------------------------------------------------------------------
-Finished Synthesize : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 647.426 ; gain = 317.531
+Finished Synthesize : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 956.367 ; gain = 625.379
 ---------------------------------------------------------------------------------
-synthesize failed
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 956.367 ; gain = 625.379
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7s50csga324-1
+INFO: [Device 21-403] Loading part xc7s50csga324-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 956.367 ; gain = 625.379
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 956.367 ; gain = 625.379
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++------+------------------+------------+----------+
+|      |RTL Partition     |Replication |Instances |
++------+------------------+------------+----------+
+|1     |fifo_dualclk__GB0 |           1|     35920|
+|2     |fifo_dualclk__GB1 |           1|     12302|
+|3     |fifo_dualclk__GB2 |           1|     15389|
+|4     |fifo_dualclk__GB3 |           1|     19210|
+|5     |fifo_dualclk__GB4 |           1|     23709|
+|6     |fifo_dualclk__GB5 |           1|     29875|
+|7     |rti_core__GC0     |           1|       538|
++------+------------------+------------+----------+
+No constraint files found.
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      8 Bit       Adders := 4     
++---XORs : 
+	   2 Input     64 Bit         XORs := 1     
+	   2 Input      8 Bit         XORs := 2     
+	   2 Input      1 Bit         XORs := 63    
++---Registers : 
+	               64 Bit    Registers := 3     
+	                8 Bit    Registers := 8     
+	                4 Bit    Registers := 2     
+	                1 Bit    Registers := 6     
++---Muxes : 
+	   2 Input     96 Bit        Muxes := 257   
+	   4 Input     32 Bit        Muxes := 1     
+	   2 Input     32 Bit        Muxes := 1     
+	   2 Input      7 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 128   
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module rti_core 
+Detailed RTL Component Info : 
++---Registers : 
+	                4 Bit    Registers := 2     
+	                1 Bit    Registers := 6     
++---Muxes : 
+	   4 Input     32 Bit        Muxes := 1     
+	   2 Input     32 Bit        Muxes := 1     
+Module gray_counter__1 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      8 Bit       Adders := 2     
++---XORs : 
+	   2 Input      8 Bit         XORs := 1     
++---Registers : 
+	                8 Bit    Registers := 4     
+Module gray_counter 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      8 Bit       Adders := 2     
++---XORs : 
+	   2 Input      8 Bit         XORs := 1     
++---Registers : 
+	                8 Bit    Registers := 4     
+Module fifo_dualclk 
+Detailed RTL Component Info : 
++---Muxes : 
+	   2 Input     96 Bit        Muxes := 257   
+	   2 Input      7 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 128   
+Module diff_counter_transfer 
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input     64 Bit         XORs := 1     
+	   2 Input      1 Bit         XORs := 63    
++---Registers : 
+	               64 Bit    Registers := 3     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 120 (col length:60)
+BRAMs: 150 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5580] Multithreading enabled for synth_design using a maximum of 2 processes.
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-3331] design rti_core has unconnected port wr_data[31]
+WARNING: [Synth 8-3331] design rti_core has unconnected port wr_data[30]
+WARNING: [Synth 8-3331] design rti_core has unconnected port wr_data[29]
+WARNING: [Synth 8-3331] design rti_core has unconnected port wr_data[28]
+WARNING: [Synth 8-3331] design rti_core has unconnected port wr_data[27]
+WARNING: [Synth 8-3331] design rti_core has unconnected port wr_data[26]
+WARNING: [Synth 8-3331] design rti_core has unconnected port wr_data[25]
+WARNING: [Synth 8-3331] design rti_core has unconnected port wr_data[24]
+WARNING: [Synth 8-3331] design rti_core has unconnected port wr_data[23]
+WARNING: [Synth 8-3331] design rti_core has unconnected port wr_data[22]
+WARNING: [Synth 8-3331] design rti_core has unconnected port wr_data[21]
+WARNING: [Synth 8-3331] design rti_core has unconnected port wr_data[20]
+WARNING: [Synth 8-3331] design rti_core has unconnected port wr_data[19]
+WARNING: [Synth 8-3331] design rti_core has unconnected port wr_data[18]
+WARNING: [Synth 8-3331] design rti_core has unconnected port wr_data[17]
+WARNING: [Synth 8-3331] design rti_core has unconnected port wr_data[16]
+WARNING: [Synth 8-3331] design rti_core has unconnected port wr_data[15]
+WARNING: [Synth 8-3331] design rti_core has unconnected port wr_data[14]
+WARNING: [Synth 8-3331] design rti_core has unconnected port wr_data[13]
+WARNING: [Synth 8-3331] design rti_core has unconnected port wr_data[12]
+WARNING: [Synth 8-3331] design rti_core has unconnected port wr_data[11]
+WARNING: [Synth 8-3331] design rti_core has unconnected port wr_data[10]
+WARNING: [Synth 8-3331] design rti_core has unconnected port wr_data[9]
+WARNING: [Synth 8-3331] design rti_core has unconnected port wr_data[8]
+WARNING: [Synth 8-3331] design rti_core has unconnected port wr_data[7]
+WARNING: [Synth 8-3331] design rti_core has unconnected port wr_data[6]
+WARNING: [Synth 8-3331] design rti_core has unconnected port wr_data[5]
+WARNING: [Synth 8-3331] design rti_core has unconnected port wr_data[4]
+WARNING: [Synth 8-3331] design rti_core has unconnected port wr_data[3]
+WARNING: [Synth 8-3331] design rti_core has unconnected port wr_data[2]
+WARNING: [Synth 8-3331] design rti_core has unconnected port wr_data[1]
+WARNING: [Synth 8-3331] design rti_core has unconnected port wr_data[0]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin p_1_in with 1st driver pin 'i_0/diff_counter_transfer_0/counter_diff_gray_buffer2_reg[63]/Q' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:30]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin p_1_in with 2nd driver pin 'GND' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:30]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net p_1_in is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:30]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary0184_out with 1st driver pin 'i_0/diff_counter_transfer_0/counter_diff_binary0_inferred/counter_diff_binary0184_out' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary0184_out with 2nd driver pin 'GND' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net counter_diff_binary0184_out is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary0182_out with 1st driver pin 'i_0/diff_counter_transfer_0/counter_diff_binary0_inferred__0/counter_diff_binary0182_out' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary0182_out with 2nd driver pin 'GND' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net counter_diff_binary0182_out is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary0179_out with 1st driver pin 'i_0/diff_counter_transfer_0/counter_diff_binary0_inferred__1/counter_diff_binary0179_out' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary0179_out with 2nd driver pin 'GND' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net counter_diff_binary0179_out is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary0176_out with 1st driver pin 'i_0/diff_counter_transfer_0/counter_diff_binary0_inferred__2/counter_diff_binary0176_out' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary0176_out with 2nd driver pin 'GND' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net counter_diff_binary0176_out is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary0173_out with 1st driver pin 'i_0/diff_counter_transfer_0/counter_diff_binary0_inferred__3/counter_diff_binary0173_out' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary0173_out with 2nd driver pin 'GND' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net counter_diff_binary0173_out is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary0170_out with 1st driver pin 'i_0/diff_counter_transfer_0/counter_diff_binary0_inferred__4/counter_diff_binary0170_out' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary0170_out with 2nd driver pin 'GND' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net counter_diff_binary0170_out is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary0167_out with 1st driver pin 'i_0/diff_counter_transfer_0/counter_diff_binary0_inferred__5/counter_diff_binary0167_out' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary0167_out with 2nd driver pin 'GND' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net counter_diff_binary0167_out is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary0164_out with 1st driver pin 'i_0/diff_counter_transfer_0/counter_diff_binary0_inferred__6/counter_diff_binary0164_out' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary0164_out with 2nd driver pin 'GND' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net counter_diff_binary0164_out is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary0161_out with 1st driver pin 'i_0/diff_counter_transfer_0/counter_diff_binary0_inferred__7/counter_diff_binary0161_out' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary0161_out with 2nd driver pin 'GND' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net counter_diff_binary0161_out is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary0158_out with 1st driver pin 'i_0/diff_counter_transfer_0/counter_diff_binary0_inferred__8/counter_diff_binary0158_out' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary0158_out with 2nd driver pin 'GND' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net counter_diff_binary0158_out is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary0155_out with 1st driver pin 'i_0/diff_counter_transfer_0/counter_diff_binary0_inferred__9/counter_diff_binary0155_out' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary0155_out with 2nd driver pin 'GND' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net counter_diff_binary0155_out is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary0152_out with 1st driver pin 'i_0/diff_counter_transfer_0/counter_diff_binary0_inferred__10/counter_diff_binary0152_out' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary0152_out with 2nd driver pin 'GND' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net counter_diff_binary0152_out is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary0149_out with 1st driver pin 'i_0/diff_counter_transfer_0/counter_diff_binary0_inferred__11/counter_diff_binary0149_out' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary0149_out with 2nd driver pin 'GND' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net counter_diff_binary0149_out is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary0146_out with 1st driver pin 'i_0/diff_counter_transfer_0/counter_diff_binary0_inferred__12/counter_diff_binary0146_out' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary0146_out with 2nd driver pin 'GND' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net counter_diff_binary0146_out is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary0143_out with 1st driver pin 'i_0/diff_counter_transfer_0/counter_diff_binary0_inferred__13/counter_diff_binary0143_out' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary0143_out with 2nd driver pin 'GND' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net counter_diff_binary0143_out is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary0140_out with 1st driver pin 'i_0/diff_counter_transfer_0/counter_diff_binary0_inferred__14/counter_diff_binary0140_out' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary0140_out with 2nd driver pin 'GND' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net counter_diff_binary0140_out is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary0137_out with 1st driver pin 'i_0/diff_counter_transfer_0/counter_diff_binary0_inferred__15/counter_diff_binary0137_out' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary0137_out with 2nd driver pin 'GND' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net counter_diff_binary0137_out is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary0134_out with 1st driver pin 'i_0/diff_counter_transfer_0/counter_diff_binary0_inferred__16/counter_diff_binary0134_out' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary0134_out with 2nd driver pin 'GND' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net counter_diff_binary0134_out is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary0131_out with 1st driver pin 'i_0/diff_counter_transfer_0/counter_diff_binary0_inferred__17/counter_diff_binary0131_out' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary0131_out with 2nd driver pin 'GND' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net counter_diff_binary0131_out is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary0128_out with 1st driver pin 'i_0/diff_counter_transfer_0/counter_diff_binary0_inferred__18/counter_diff_binary0128_out' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary0128_out with 2nd driver pin 'GND' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net counter_diff_binary0128_out is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary0125_out with 1st driver pin 'i_0/diff_counter_transfer_0/counter_diff_binary0_inferred__19/counter_diff_binary0125_out' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary0125_out with 2nd driver pin 'GND' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net counter_diff_binary0125_out is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary0122_out with 1st driver pin 'i_0/diff_counter_transfer_0/counter_diff_binary0_inferred__20/counter_diff_binary0122_out' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary0122_out with 2nd driver pin 'GND' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net counter_diff_binary0122_out is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary0119_out with 1st driver pin 'i_0/diff_counter_transfer_0/counter_diff_binary0_inferred__21/counter_diff_binary0119_out' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary0119_out with 2nd driver pin 'GND' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net counter_diff_binary0119_out is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary0116_out with 1st driver pin 'i_0/diff_counter_transfer_0/counter_diff_binary0_inferred__22/counter_diff_binary0116_out' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary0116_out with 2nd driver pin 'GND' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net counter_diff_binary0116_out is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary0113_out with 1st driver pin 'i_0/diff_counter_transfer_0/counter_diff_binary0_inferred__23/counter_diff_binary0113_out' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary0113_out with 2nd driver pin 'GND' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net counter_diff_binary0113_out is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary0110_out with 1st driver pin 'i_0/diff_counter_transfer_0/counter_diff_binary0_inferred__24/counter_diff_binary0110_out' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary0110_out with 2nd driver pin 'GND' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net counter_diff_binary0110_out is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary0107_out with 1st driver pin 'i_0/diff_counter_transfer_0/counter_diff_binary0_inferred__25/counter_diff_binary0107_out' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary0107_out with 2nd driver pin 'GND' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net counter_diff_binary0107_out is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary0104_out with 1st driver pin 'i_0/diff_counter_transfer_0/counter_diff_binary0_inferred__26/counter_diff_binary0104_out' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary0104_out with 2nd driver pin 'GND' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net counter_diff_binary0104_out is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary0101_out with 1st driver pin 'i_0/diff_counter_transfer_0/counter_diff_binary0_inferred__27/counter_diff_binary0101_out' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary0101_out with 2nd driver pin 'GND' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net counter_diff_binary0101_out is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary098_out with 1st driver pin 'i_0/diff_counter_transfer_0/counter_diff_binary0_inferred__28/counter_diff_binary098_out' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary098_out with 2nd driver pin 'GND' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net counter_diff_binary098_out is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary095_out with 1st driver pin 'i_0/diff_counter_transfer_0/counter_diff_binary0_inferred__29/counter_diff_binary095_out' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary095_out with 2nd driver pin 'GND' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net counter_diff_binary095_out is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary092_out with 1st driver pin 'i_0/diff_counter_transfer_0/counter_diff_binary0_inferred__30/counter_diff_binary092_out' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary092_out with 2nd driver pin 'GND' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net counter_diff_binary092_out is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary089_out with 1st driver pin 'i_0/diff_counter_transfer_0/counter_diff_binary0_inferred__31/counter_diff_binary089_out' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary089_out with 2nd driver pin 'GND' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net counter_diff_binary089_out is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary086_out with 1st driver pin 'i_0/diff_counter_transfer_0/counter_diff_binary0_inferred__32/counter_diff_binary086_out' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary086_out with 2nd driver pin 'GND' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net counter_diff_binary086_out is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary083_out with 1st driver pin 'i_0/diff_counter_transfer_0/counter_diff_binary0_inferred__33/counter_diff_binary083_out' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary083_out with 2nd driver pin 'GND' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net counter_diff_binary083_out is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary080_out with 1st driver pin 'i_0/diff_counter_transfer_0/counter_diff_binary0_inferred__34/counter_diff_binary080_out' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary080_out with 2nd driver pin 'GND' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net counter_diff_binary080_out is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary077_out with 1st driver pin 'i_0/diff_counter_transfer_0/counter_diff_binary0_inferred__35/counter_diff_binary077_out' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary077_out with 2nd driver pin 'GND' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net counter_diff_binary077_out is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary074_out with 1st driver pin 'i_0/diff_counter_transfer_0/counter_diff_binary0_inferred__36/counter_diff_binary074_out' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary074_out with 2nd driver pin 'GND' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net counter_diff_binary074_out is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary071_out with 1st driver pin 'i_0/diff_counter_transfer_0/counter_diff_binary0_inferred__37/counter_diff_binary071_out' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary071_out with 2nd driver pin 'GND' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net counter_diff_binary071_out is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary068_out with 1st driver pin 'i_0/diff_counter_transfer_0/counter_diff_binary0_inferred__38/counter_diff_binary068_out' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary068_out with 2nd driver pin 'GND' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net counter_diff_binary068_out is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary065_out with 1st driver pin 'i_0/diff_counter_transfer_0/counter_diff_binary0_inferred__39/counter_diff_binary065_out' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary065_out with 2nd driver pin 'GND' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net counter_diff_binary065_out is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary062_out with 1st driver pin 'i_0/diff_counter_transfer_0/counter_diff_binary0_inferred__40/counter_diff_binary062_out' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary062_out with 2nd driver pin 'GND' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net counter_diff_binary062_out is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary059_out with 1st driver pin 'i_0/diff_counter_transfer_0/counter_diff_binary0_inferred__41/counter_diff_binary059_out' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary059_out with 2nd driver pin 'GND' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net counter_diff_binary059_out is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary056_out with 1st driver pin 'i_0/diff_counter_transfer_0/counter_diff_binary0_inferred__42/counter_diff_binary056_out' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary056_out with 2nd driver pin 'GND' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net counter_diff_binary056_out is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary053_out with 1st driver pin 'i_0/diff_counter_transfer_0/counter_diff_binary0_inferred__43/counter_diff_binary053_out' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary053_out with 2nd driver pin 'GND' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net counter_diff_binary053_out is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary050_out with 1st driver pin 'i_0/diff_counter_transfer_0/counter_diff_binary0_inferred__44/counter_diff_binary050_out' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary050_out with 2nd driver pin 'GND' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net counter_diff_binary050_out is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary047_out with 1st driver pin 'i_0/diff_counter_transfer_0/counter_diff_binary0_inferred__45/counter_diff_binary047_out' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary047_out with 2nd driver pin 'GND' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net counter_diff_binary047_out is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary044_out with 1st driver pin 'i_0/diff_counter_transfer_0/counter_diff_binary0_inferred__46/counter_diff_binary044_out' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary044_out with 2nd driver pin 'GND' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net counter_diff_binary044_out is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary041_out with 1st driver pin 'i_0/diff_counter_transfer_0/counter_diff_binary0_inferred__47/counter_diff_binary041_out' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin counter_diff_binary041_out with 2nd driver pin 'GND' [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+INFO: [Common 17-14] Message 'Synth 8-6859' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+CRITICAL WARNING: [Synth 8-6858] multi-driven net counter_diff_binary041_out is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net counter_diff_binary038_out is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net counter_diff_binary035_out is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net counter_diff_binary032_out is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net counter_diff_binary029_out is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net counter_diff_binary026_out is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net counter_diff_binary023_out is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net counter_diff_binary020_out is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net counter_diff_binary017_out is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net counter_diff_binary014_out is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net counter_diff_binary011_out is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net counter_diff_binary08_out is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net counter_diff_binary05_out is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net counter_diff_binary02_out is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net counter_diff_binary0 is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv:24]
+INFO: [Synth 8-3886] merging instance 'i_0/din_buffer1_reg[0]' (FDR) to 'i_0/din_buffer1_reg[1]'
+INFO: [Synth 8-3886] merging instance 'i_0/din_buffer1_reg[1]' (FDR) to 'i_0/din_buffer1_reg[2]'
+INFO: [Synth 8-3886] merging instance 'i_0/din_buffer1_reg[2]' (FDR) to 'i_0/din_buffer1_reg[3]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\din_buffer1_reg[3] )
+INFO: [Synth 8-3886] merging instance 'i_0/din_buffer2_reg[0]' (FDR) to 'i_0/din_buffer1_reg[3]'
+INFO: [Synth 8-3886] merging instance 'i_0/din_buffer2_reg[1]' (FDR) to 'i_0/din_buffer1_reg[3]'
+INFO: [Synth 8-3886] merging instance 'i_0/din_buffer2_reg[2]' (FDR) to 'i_0/din_buffer1_reg[3]'
+INFO: [Synth 8-3886] merging instance 'i_0/din_buffer2_reg[3]' (FDR) to 'i_0/din_buffer1_reg[3]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\din_buffer1_reg[3] )
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/fifo_dualclk.sv:85]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/fifo_dualclk.sv:85]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/fifo_dualclk.sv:85]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/fifo_dualclk.sv:85]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/fifo_dualclk.sv:85]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/fifo_dualclk.sv:85]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/fifo_dualclk.sv:85]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/fifo_dualclk.sv:85]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/fifo_dualclk.sv:85]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/fifo_dualclk.sv:85]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/fifo_dualclk.sv:85]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/fifo_dualclk.sv:85]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/fifo_dualclk.sv:85]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/fifo_dualclk.sv:85]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/fifo_dualclk.sv:85]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/fifo_dualclk.sv:85]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/fifo_dualclk.sv:85]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/fifo_dualclk.sv:85]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/fifo_dualclk.sv:85]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/fifo_dualclk.sv:85]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/fifo_dualclk.sv:85]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/fifo_dualclk.sv:85]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/fifo_dualclk.sv:85]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/fifo_dualclk.sv:85]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/fifo_dualclk.sv:85]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/fifo_dualclk.sv:85]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/fifo_dualclk.sv:85]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/fifo_dualclk.sv:85]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/fifo_dualclk.sv:85]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/fifo_dualclk.sv:85]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/fifo_dualclk.sv:85]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/fifo_dualclk.sv:85]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/fifo_dualclk.sv:85]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/fifo_dualclk.sv:85]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/fifo_dualclk.sv:85]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.srcs/sources_1/new/fifo_dualclk.sv:85]
+INFO: [Common 17-14] Message 'Synth 8-6858' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Common 17-14] Message 'Synth 8-6859' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Common 17-14] Message 'Synth 8-6858' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\wr_counter/gray_out_buffer_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\wr_counter/gray_out_buffer_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\wr_counter/gray_out_buffer_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\wr_counter/gray_out_buffer_reg[4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\wr_counter/gray_out_buffer_reg[5] )
+INFO: [Synth 8-3886] merging instance 'rd_counter/gray_out_reg[6]' (FDR) to 'rd_counter/gray_out_reg[7]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\rd_counter/gray_out_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\rd_counter/gray_out_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\rd_counter/gray_out_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\rd_counter/gray_out_reg[4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\rd_counter/gray_out_reg[5] )
+INFO: [Synth 8-3886] merging instance 'wr_counter/gray_out_reg[7]' (FDR) to 'wr_counter/gray_out_reg[6]'
+INFO: [Synth 8-3886] merging instance 'wr_counter/gray_out_buffer_reg[6]' (FDR) to 'wr_counter/gray_out_buffer_reg[7]'
+INFO: [Synth 8-3886] merging instance 'rd_counter/gray_out_buffer_reg[7]' (FDR) to 'rd_counter/gray_out_buffer_reg[6]'
+INFO: [Synth 8-3886] merging instance 'wr_counter/gray_out_synced_reg[6]' (FDR) to 'wr_counter/gray_out_synced_reg[7]'
+INFO: [Synth 8-3886] merging instance 'rd_counter/gray_out_synced_reg[7]' (FDR) to 'rd_counter/gray_out_synced_reg[6]'
+INFO: [Common 17-14] Message 'Synth 8-6859' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Common 17-14] Message 'Synth 8-6858' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:24 ; elapsed = 00:00:43 . Memory (MB): peak = 956.367 ; gain = 625.379
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++------+------------------+------------+----------+
+|      |RTL Partition     |Replication |Instances |
++------+------------------+------------+----------+
+|1     |fifo_dualclk__GB0 |           1|     23620|
+|2     |fifo_dualclk__GB1 |           1|        39|
+|3     |fifo_dualclk__GB2 |           1|         7|
+|4     |fifo_dualclk__GB3 |           1|         0|
+|5     |fifo_dualclk__GB4 |           1|       305|
+|6     |fifo_dualclk__GB5 |           1|       144|
+|7     |rti_core__GC0     |           1|       147|
++------+------------------+------------+----------+
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:25 ; elapsed = 00:00:43 . Memory (MB): peak = 956.367 ; gain = 625.379
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++------+------------------+------------+----------+
+|      |RTL Partition     |Replication |Instances |
++------+------------------+------------+----------+
+|1     |fifo_dualclk__GB5 |           1|       144|
+|2     |rti_core__GC0     |           1|        25|
++------+------------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+Warning: Parallel synthesis criteria is not met 
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:25 ; elapsed = 00:00:43 . Memory (MB): peak = 956.367 ; gain = 625.379
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:29 ; elapsed = 00:00:47 . Memory (MB): peak = 956.367 ; gain = 625.379
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:29 ; elapsed = 00:00:47 . Memory (MB): peak = 956.367 ; gain = 625.379
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:29 ; elapsed = 00:00:47 . Memory (MB): peak = 956.367 ; gain = 625.379
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:29 ; elapsed = 00:00:47 . Memory (MB): peak = 956.367 ; gain = 625.379
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:29 ; elapsed = 00:00:47 . Memory (MB): peak = 956.367 ; gain = 625.379
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:29 ; elapsed = 00:00:47 . Memory (MB): peak = 956.367 ; gain = 625.379
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-----+------+
+|      |Cell |Count |
++------+-----+------+
+|1     |BUFG |     2|
+|2     |LUT2 |     2|
+|3     |LUT3 |     2|
+|4     |LUT4 |    10|
+|5     |LUT5 |    10|
+|6     |LUT6 |    10|
+|7     |FDRE |    34|
+|8     |IBUF |    11|
+|9     |OBUF |    36|
++------+-----+------+
+
+Report Instance Areas: 
++------+-----------------+---------------+------+
+|      |Instance         |Module         |Cells |
++------+-----------------+---------------+------+
+|1     |top              |               |   117|
+|2     |  fifo_dulaclk_0 |fifo_dualclk   |    59|
+|3     |    rd_counter   |gray_counter   |    27|
+|4     |    wr_counter   |gray_counter_0 |    32|
++------+-----------------+---------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:29 ; elapsed = 00:00:47 . Memory (MB): peak = 956.367 ; gain = 625.379
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 592 critical warnings and 67 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:29 ; elapsed = 00:00:48 . Memory (MB): peak = 956.367 ; gain = 625.379
+Synthesis Optimization Complete : Time (s): cpu = 00:00:29 ; elapsed = 00:00:48 . Memory (MB): peak = 956.367 ; gain = 625.379
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 956.367 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 956.367 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
 INFO: [Common 17-83] Releasing license: Synthesis
-3 Infos, 0 Warnings, 0 Critical Warnings and 3 Errors encountered.
-synth_design failed
-ERROR: [Common 17-69] Command failed: Vivado Synthesis failed
-INFO: [Common 17-206] Exiting Vivado at Sun Jul 26 14:38:21 2020...
+47 Infos, 67 Warnings, 200 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:32 ; elapsed = 00:00:53 . Memory (MB): peak = 956.367 ; gain = 650.211
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 956.367 ; gain = 0.000
+WARNING: [Constraints 18-5210] No constraints selected for write.
+Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
+INFO: [Common 17-1381] The checkpoint 'C:/M-labs/TEST/RTIO_DEVELOPMENT/RTIO_DEVELOPMENT.runs/synth_1/rti_core.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file rti_core_utilization_synth.rpt -pb rti_core_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Mon Jul 27 12:26:47 2020...
