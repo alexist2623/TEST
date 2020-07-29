@@ -1,0 +1,10 @@
+# compile verilog/system verilog design source files
+sv xil_defaultlib  \
+"../../../../RTIO_DEVELOPMENT.srcs/sources_1/new/rising_edge_detector.sv" \
+"../../../../RTIO_DEVELOPMENT.srcs/sim_1/new/testbench_edge_detect.sv" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

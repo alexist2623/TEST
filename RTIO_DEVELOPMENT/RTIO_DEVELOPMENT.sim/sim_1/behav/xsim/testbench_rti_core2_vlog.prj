@@ -1,0 +1,14 @@
+# compile verilog/system verilog design source files
+sv xil_defaultlib  \
+"../../../../RTIO_DEVELOPMENT.srcs/sources_1/new/diff_counter_transfer.sv" \
+"../../../../RTIO_DEVELOPMENT.srcs/sources_1/new/fifo_dualclk.sv" \
+"../../../../RTIO_DEVELOPMENT.srcs/sources_1/new/gray_counter.sv" \
+"../../../../RTIO_DEVELOPMENT.srcs/sources_1/new/rising_edge_detector.sv" \
+"../../../../RTIO_DEVELOPMENT.srcs/sources_1/new/rti_core.sv" \
+"../../../../RTIO_DEVELOPMENT.srcs/sim_1/new/testbench_rti_core2.sv" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort
