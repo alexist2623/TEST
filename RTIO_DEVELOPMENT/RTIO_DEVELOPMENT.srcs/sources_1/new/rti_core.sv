@@ -46,26 +46,24 @@ logic full, empty;
 logic full_diff_clk, full_buffer1, full_buffer2;
 logic full_out;
 logic [31:0] timer_upper, timer_lower, edges;
-logic wr_en_buffer1, wr_en_buffer2;
 logic flush_buffer1, flush_buffer2, flush;
 logic wrst_buffer1, wrst_buffer2;
 logic rrst;
 logic [$bits(counter)-1:0] counter_x8_domain;
 logic [N_IN-1:0] din_buffer1;
 logic [N_IN-1:0] din_buffer2;
-logic wr_en_async;
+logic wr_en;
 logic flush_async;
 logic rising_edge_detected;
 logic rising_edge_detected_input;
 logic rising_edge_detected_buffer1;
 logic rising_edge_detected_buffer2;
 
-assign wr_en = wr_en_buffer2;                       //write && cs && (addr==5'd4); was changed to prevent metastable
 assign flush = flush_buffer2;                       //write && cs && (addr == 5'd5); was changed to prevent metastable
 assign rrst = reset;
 assign wrst = wrst_buffer2;
 assign write_buffer = {{(32-N_IN){0}}, din_buffer2};
-assign wr_en_async = ( write && cs && (addr==5'd4) );
+assign wr_en = ( write && cs && (addr==5'd4) );
 assign flush_async = ( write && cs && (addr == 5'd5) );
 assign rising_edge_detected_input = rising_edge_detected_buffer2;
 assign full_out = full_buffer2;
@@ -77,8 +75,8 @@ fifo_dualclk #(
 fifo_dulaclk_0
 (
     .clk(clk),
-    .wrst(wrst | flush_async),                      // reset or flush duration should be larger than 1.25ns
-    .rrst(rrst | flush),                            // reset or flush duration should be larger than 10ns
+    .wrst(wrst | flush),                            // reset or flush duration should be larger than 1.25ns
+    .rrst(rrst | flush_async),                      // reset or flush duration should be larger than 10ns
     .clkx8(clkx8),
 	.wr_en(rising_edge_detected_input), 
 	.rd_en(wr_en),
@@ -115,8 +113,6 @@ rising_edge_detector_0
 //### synchronizing write, cs, addr signal to clkx8 (800MHz) & match timing with counter
 always @ (posedge clkx8) begin
     if( wrst == 1'd1) begin
-        wr_en_buffer1 <= 0;
-        wr_en_buffer2 <= 0;
         flush_buffer1 <= 0;
         flush_buffer2 <= 0;
         wrst_buffer1 <= reset;
@@ -129,9 +125,7 @@ always @ (posedge clkx8) begin
     end
     
     else begin
-        wr_en_buffer1 <= write && cs && (addr==5'd4);
         flush_buffer1 <= flush_async;
-        wr_en_buffer2 <= wr_en_buffer1;
         flush_buffer2 <= flush_buffer1;
         wrst_buffer1 <= reset;
         wrst_buffer2 <= wrst_buffer1;
