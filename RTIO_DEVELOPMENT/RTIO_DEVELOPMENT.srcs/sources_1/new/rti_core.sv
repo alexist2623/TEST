@@ -53,6 +53,10 @@ logic [N_IN-1:0] din_buffer1;
 logic [N_IN-1:0] din_buffer2;
 logic wr_en_async;
 logic flush_async;
+logic rising_edge_detected;
+logic rising_edge_detected_input;
+logic rising_edge_detected_buffer1;
+logic rising_edge_detected_buffer2;
 
 assign wr_en = wr_en_buffer2;                       //write && cs && (addr==5'd4); was changed to prevent metastable
 assign flush = flush_buffer2;                       //write && cs && (addr == 5'd5); was changed to prevent metastable
@@ -61,6 +65,7 @@ assign wrst = wrst_buffer2;
 assign write_buffer = {{(32-N_IN){0}}, din_buffer2};
 assign wr_en_async = ( write && cs && (addr==5'd4) );
 assign flush_async = ( write && cs && (addr == 5'd5) );
+assign rising_edge_detected_input = rising_edge_detected_buffer2;
 
 fifo_dualclk #(
     .DATA_WIDTH( $bits(timer_upper) + $bits(timer_lower) + $bits(edges) ),
@@ -72,8 +77,8 @@ fifo_dulaclk_0
     .wrst(wrst | flush),                            // reset or flush duration should be larger than 1.25ns
     .rrst(rrst | flush),                            // reset or flush duration should be larger than 10ns
     .clkx8(clkx8),
-	.wr_en(wr_en), 
-	.rd_en(read),
+	.wr_en(rising_edge_detected_input), 
+	.rd_en(wr_en),
 	.din({counter_x8_domain, write_buffer}),        // {counter,{(32-2*N_IN){0}}, buffer} was changed to {counter,{(32-N_IN){0}}, buffer} 
 	.empty(empty), 
 	.full(full),
@@ -93,6 +98,17 @@ diff_counter_transfer_0
     .counter_diff(counter_x8_domain)
 );
 
+rising_edge_detector#(
+    .N_IN(N_IN)
+)
+rising_edge_detector_0
+(
+    .din(din),
+    .clk(clkx8),
+    .reset(reset),
+    .rising_edge_detected(rising_edge_detected)
+);
+
 //### synchronizing write, vs, addr signal to clkx8 (800MHz)
 always @ (posedge clkx8) begin
     if( wrst == 1'd1) begin
@@ -102,15 +118,19 @@ always @ (posedge clkx8) begin
         flush_buffer2 <= 0;
         wrst_buffer1 <= reset;
         wrst_buffer2 <= wrst_buffer1;
+        rising_edge_detected_buffer2 <= 0;
+        rising_edge_detected_buffer1 <= 0;
     end
     
     else begin
-        wr_en_buffer1 <= wr_en_async;
+        wr_en_buffer1 <= rising_edge_detected;
         flush_buffer1 <= flush_async;
         wr_en_buffer2 <= wr_en_buffer1;
         flush_buffer2 <= flush_buffer1;
         wrst_buffer1 <= reset;
         wrst_buffer2 <= wrst_buffer1;
+        rising_edge_detected_buffer1 <= rising_edge_detected;
+        rising_edge_detected_buffer2 <= rising_edge_detected_buffer1;
     end
 end
 
