@@ -25,10 +25,12 @@
   <File Type="ROUTE-DRC" Name="rti_core_drc_routed.rpt"/>
   <File Type="ROUTE-DRC-PB" Name="rti_core_drc_routed.pb"/>
   <File Type="ROUTE-DRC-RPX" Name="rti_core_drc_routed.rpx"/>
+  <File Type="BITSTR-LTX" Name="rti_core.ltx"/>
   <File Type="ROUTE-METHODOLOGY-DRC" Name="rti_core_methodology_drc_routed.rpt"/>
   <File Type="BITSTR-MMI" Name="rti_core.mmi"/>
   <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="rti_core_methodology_drc_routed.rpx"/>
   <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="rti_core_methodology_drc_routed.pb"/>
+  <File Type="BITSTR-SYSDEF" Name="rti_core.sysdef"/>
   <File Type="ROUTE-PWR-RPX" Name="rti_core_power_routed.rpx"/>
   <File Type="ROUTE-STATUS" Name="rti_core_route_status.rpt"/>
   <File Type="ROUTE-STATUS-PB" Name="rti_core_route_status.pb"/>
@@ -36,6 +38,7 @@
   <File Type="ROUTE-TIMING-PB" Name="rti_core_timing_summary_routed.pb"/>
   <File Type="ROUTE-TIMING-RPX" Name="rti_core_timing_summary_routed.rpx"/>
   <File Type="ROUTE-CLK" Name="rti_core_clock_utilization_routed.rpt"/>
+  <File Type="RDI-RDI" Name="rti_core.vdi"/>
   <File Type="ROUTE-BUS-SKEW" Name="rti_core_bus_skew_routed.rpt"/>
   <File Type="ROUTE-BUS-SKEW-PB" Name="rti_core_bus_skew_routed.pb"/>
   <File Type="ROUTE-BUS-SKEW-RPX" Name="rti_core_bus_skew_routed.rpx"/>
@@ -47,15 +50,12 @@
   <File Type="PDI-FILE" Name="rti_core.pdi"/>
   <File Type="RCFI_FILE" Name="rti_core.rcfi"/>
   <File Type="CFI_FILE" Name="rti_core.cfi"/>
+  <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
   <File Type="RNPI_FILE" Name="rti_core.rnpi"/>
   <File Type="NPI_FILE" Name="rti_core.npi"/>
   <File Type="RBD_FILE" Name="rti_core.rbd"/>
-  <File Type="BITSTR-LTX" Name="rti_core.ltx"/>
-  <File Type="BITSTR-SYSDEF" Name="rti_core.sysdef"/>
   <File Type="BG-BGN" Name="rti_core.bgn"/>
   <File Type="BG-DRC" Name="rti_core.drc"/>
-  <File Type="RDI-RDI" Name="rti_core.vdi"/>
-  <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/new/diff_counter_transfer.sv">

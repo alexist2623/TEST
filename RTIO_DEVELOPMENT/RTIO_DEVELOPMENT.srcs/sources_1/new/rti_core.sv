@@ -43,6 +43,8 @@ module rti_core
 
 logic [31:0] write_buffer;
 logic full, empty;
+logic full_diff_clk, full_buffer1, full_buffer2;
+logic full_out;
 logic [31:0] timer_upper, timer_lower, edges;
 logic wr_en_buffer1, wr_en_buffer2;
 logic flush_buffer1, flush_buffer2, flush;
@@ -66,6 +68,7 @@ assign write_buffer = {{(32-N_IN){0}}, din_buffer2};
 assign wr_en_async = ( write && cs && (addr==5'd4) );
 assign flush_async = ( write && cs && (addr == 5'd5) );
 assign rising_edge_detected_input = rising_edge_detected_buffer2;
+assign full_out = full_buffer2;
 
 fifo_dualclk #(
     .DATA_WIDTH( $bits(timer_upper) + $bits(timer_lower) + $bits(edges) ),
@@ -74,7 +77,7 @@ fifo_dualclk #(
 fifo_dulaclk_0
 (
     .clk(clk),
-    .wrst(wrst | flush),                            // reset or flush duration should be larger than 1.25ns
+    .wrst(wrst | flush_async),                      // reset or flush duration should be larger than 1.25ns
     .rrst(rrst | flush),                            // reset or flush duration should be larger than 10ns
     .clkx8(clkx8),
 	.wr_en(rising_edge_detected_input), 
@@ -109,7 +112,7 @@ rising_edge_detector_0
     .rising_edge_detected(rising_edge_detected)
 );
 
-//### synchronizing write, vs, addr signal to clkx8 (800MHz)
+//### synchronizing write, cs, addr signal to clkx8 (800MHz) & match timing with counter
 always @ (posedge clkx8) begin
     if( wrst == 1'd1) begin
         wr_en_buffer1 <= 0;
@@ -120,30 +123,53 @@ always @ (posedge clkx8) begin
         wrst_buffer2 <= wrst_buffer1;
         rising_edge_detected_buffer2 <= 0;
         rising_edge_detected_buffer1 <= 0;
+        din_buffer1 <= 0;
+        din_buffer2 <= 0;
+        full_diff_clk <= 0;
     end
     
     else begin
-        wr_en_buffer1 <= rising_edge_detected;
+        wr_en_buffer1 <= write && cs && (addr==5'd4);
         flush_buffer1 <= flush_async;
         wr_en_buffer2 <= wr_en_buffer1;
         flush_buffer2 <= flush_buffer1;
         wrst_buffer1 <= reset;
         wrst_buffer2 <= wrst_buffer1;
-        rising_edge_detected_buffer1 <= rising_edge_detected;
-        rising_edge_detected_buffer2 <= rising_edge_detected_buffer1;
+        
+        if( flush == 1'd0 ) begin
+            if( full == 1'd1 ) begin
+                full_diff_clk <= 1'd1;
+            end
+            
+            else begin
+                full_diff_clk <= full_diff_clk;
+            end
+            din_buffer1 <= din;
+            din_buffer2 <= din_buffer1;
+            rising_edge_detected_buffer1 <= rising_edge_detected;
+            rising_edge_detected_buffer2 <= rising_edge_detected_buffer1;
+        end
+        
+        else begin
+            din_buffer1 <= 0;
+            din_buffer2 <= 0;
+            full_diff_clk <= 1'd0;
+            rising_edge_detected_buffer1 <= 0;
+            rising_edge_detected_buffer2 <= 0;
+        end
     end
 end
 
-//### match timing with counter
-always @ ( posedge clkx8 ) begin
-    if( reset == 1'd1) begin
-        din_buffer1 <= 0;
-        din_buffer2 <= 0;
+// ### save full if they were 1 and prevent meta stable
+always @ ( posedge clk ) begin
+    if( reset == 1'd1 ) begin
+        full_buffer1 <= 0;
+        full_buffer2 <= 0;
     end
     
     else begin
-        din_buffer1 <= din;
-        din_buffer2 <= din_buffer1;
+        full_buffer1 <= full_diff_clk;
+        full_buffer2 <= full_buffer1;
     end
 end
 
@@ -156,7 +182,7 @@ always @ (*) begin
     5'd2:
         rd_data = edges;
     5'd3:
-        rd_data = {30'b0, full, empty};
+        rd_data = {30'b0, full_out, empty};
     default:
         rd_data = 0;  
     endcase
