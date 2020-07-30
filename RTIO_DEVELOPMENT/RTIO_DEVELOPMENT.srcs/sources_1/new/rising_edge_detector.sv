@@ -33,13 +33,16 @@ module rising_edge_detector
     
 logic [N_IN-1:0] din_prev;
 logic [N_IN-1:0] check_rising;
+logic is_first;
 
 always @(posedge clk) begin
     if(reset == 1'd0) begin
         din_prev <= din;
+        is_first <= 1'd0;
     end
     else begin
         din_prev <= 0;
+        is_first <= 1'd1;
     end
 end
 
@@ -51,6 +54,6 @@ generate
     end
 endgenerate
 
-assign check_rising[N_IN - 1] = din[N_IN-1] & ~din_prev[0]; //assume MSB is first bit
+assign check_rising[N_IN - 1] = (is_first)? 1'd0 : din[N_IN-1] & ~din_prev[0]; //assume MSB is first bit
 assign rising_edge_detected = |check_rising;
 endmodule
