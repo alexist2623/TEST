@@ -162,7 +162,7 @@ end
 
 // ### save full if they were 1 and prevent meta stable
 always @ ( posedge clk ) begin
-    if( reset == 1'd1 ) begin
+    if( reset == 1'd1 | flush_async == 1'd1 ) begin
         full_buffer1 <= 0;
         full_buffer2 <= 0;
     end
