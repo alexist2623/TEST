@@ -30,7 +30,6 @@ assign binary_out = binary;
 always @(posedge clk_counter) begin				// counter which works in "clk_counter" clock
 	if(reset_counter) begin
 		binary <= 0;							// synchronous reset
-		binary_out <= 0;
 		gray_out <= 0;
 	end
 		
